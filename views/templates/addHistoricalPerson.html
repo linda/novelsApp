@@ -1,0 +1,13 @@
+<h4 ng-show="ACC.title">Add a character to {{ACC.novelTitle}}</h4>
+<br>
+<form name="addAPerson" class="form-horizontal" ng-submit="ACC.addCharacter()">
+    <div class="form-group">
+        <label for="name" class="col-md-2 control-label">Character:</label>
+        <div class="col-sm-6">
+            <select title="Name" name="name" id="name" data-ng-model="ACC.toAdd.personId" class="input-sm col-sm-4"
+                    data-ng-options="person.id as person.name_en for person in ACC.existingCharacters">
+            </select>
+            <button class="btn btn-sm" type="submit">Add</button>
+        </div>
+    </div>
+</form>

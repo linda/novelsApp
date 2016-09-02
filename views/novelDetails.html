@@ -1,0 +1,52 @@
+<div class="col-md-10 col-xs-12">
+	<h1 ng-bind="NDC.novel.Title"></h1>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<div class="row">
+				<label class="col-sm-4 col-md-4">Author</label>
+				<span ng-bind="NDC.novel.Author"></span>
+			</div>
+			<div class="row">
+				<label class="col-sm-4 col-md-4">Published</label>
+				<span ng-bind="NDC.novel.Published_end"></span>
+			</div>
+			<div class="row">
+				<label class="col-sm-4 col-md-4">Completed</label>
+				<span ng-bind="NDC.novel.Completed=='Y' ? 'Yes' : 'No'"></span>
+			</div>
+			<div class="row">
+				<label class="col-sm-4 col-md-4">Characters</label>
+				<div class="col-sm-8 no-padding-left">
+					<ul style="display: inline; list-style-type: none; margin: 0; padding: 0">
+						<li ng-repeat="character in NDC.novel.chars">
+							<span ng-bind="character"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6">
+			<div class="row">
+				<label class="col-sm-4 col-md-4">Set</label>
+				<span ng-bind="NDC.novel.Setting_year_start"></span>&nbsp;-&nbsp;<span ng-bind="NDC.novel.Setting_year_end"></span>
+			</div>
+			<div class="row">
+				<label class="col-sm-4 col-md-4">Language</label>
+				<span ng-bind="NDC.novel.language| novelsFullLanguageName"
+					class="label language-{{NDC.novel.language}}"></span>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="row">
+				<label class="col-sm-2 col-md-2">Link</label>
+				<span ng-bind="NDC.novel.Download_link | novelsEmptyString"></span>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="row">
+				<novels-add-person novel-id="NDC.novel.ID" update-list="NDC.reload()"></novels-add-person>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,76 @@
+<div class="col-md-12">
+	<h1>List of Novels</h1>
+
+	<form name="showNovelsForm" class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-7">
+				<button name="search" type="button" data-ng-click="NLC.reload()" class="btn btn-default">
+					<span class="glyphicon glyphicon-search"></span>&nbsp;New Search
+				</button>
+			</div>
+		</div>
+	</form>
+
+
+	<form name="search" class="form-inline">
+		<div class="form-group">
+			<div class="col-lg-12">
+				<label><i>Filter:</i></label>
+				<label for="titleFilter">Title:</label>
+				<input id="titleFilter" ng-model="NLC.titleFilter"/>
+				<label for="characterFilter">Character:</label>
+				<input id="characterFilter" ng-model="NLC.characterFilter"/>
+			</div>
+		</div>
+	</form>
+	<ul class="list-unstyled">
+		<li>
+			<div class="row title-row">
+				<span class="col-xs-12 col-sm-6 col-md-2">Author</span>
+				<span class="col-xs-12 col-sm-6 col-md-4">Title</span>
+				<span class="col-xs-12 col-sm-offset-6 col-sm-6 col-md-offset-0 col-md-2">Set</span>
+				<span class="col-xs-12 col-sm-6 col-md-2">Characters</span>
+				<span class="col-xs-12 col-sm-6 col-md-1">
+				</span>
+			</div>
+		</li>
+		<li ng-repeat="novel in NLC.novels | filter: {Title: NLC.titleFilter} | filter: {chars: NLC.characterFilter}"
+			class="striped-row-list"
+			ng-controller="UniqueNovelInListController as UNC">
+			<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-2">
+					<span ng-bind="novel.Author"></span>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<span ng-bind="novel.Title"></span>
+				</div>
+				<div class="col-xs-12 col-sm-offset-6 col-sm-6 col-md-offset-0 col-md-2">
+					<span ng-bind="novel.Setting_year_start"></span>
+					&nbsp;-&nbsp;<span ng-bind="novel.Setting_year_end"></span>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="row">
+						<div class="col-sm-10">
+							<ul class="list-unstyled">
+								<li ng-repeat="character in novel.chars">
+									{{character}}
+								</li>
+							</ul>
+						</div>
+						<button title="Add a character to {{novel.Title}}" name="details" type="button"
+								data-ng-click="UNC.toggleShowForm()" class="btn no-side-padding btn-link col-sm-2"
+								style="font-size: small; background-color: inherit"><span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-1 pull-right">
+					<a ui-sref="novelDetails({ id: novel.ID })" class="pull-right">Details</a>
+				</div>
+				<div data-ng-if="UNC.showForm"
+					class="col-md-9 col-md-offset-2 curved-border-box" style="background-color: #ebebeb">
+					<novels-add-person novel-id="novel.ID" novel-title="novel.Title" update-list="NLC.updateList($index, novel.ID)"></novels-add-person>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

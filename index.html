@@ -1,0 +1,72 @@
+<!doctype html>
+<html ng-app="novelsApp">
+	<body class="container-fluid">
+	<header>
+		<a href="#">Home</a>
+		<a href="#/novelList">Novel-Search</a>
+		<a href="#/addNovel">Add Novel</a>
+	</header>
+	<div id="main" class="row">
+		<div ui-view></div>
+	</div>
+	</body>
+	<head>
+		<!--
+			Angular-Scripts
+		-->
+		<!--
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+                <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.js"></script>
+        -->
+		<script src="libs/angular/angular.min.js"></script>
+		<script src="libs/angular/angular-ui-router.min.js"></script>
+		<script src="libs/angular/angular-messages.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+		<!--
+			Bootstrap links
+		-->
+		<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+		<!--
+                <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css.map">
+                <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
+                <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css.map">
+                <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+        -->
+		<!--
+                NovelApp-Scripts
+        -->
+		<script src="scripts/dumas.js"></script>
+		<!--
+			NovelApp-Scripts: Services & Factories
+		-->
+		<script src="scripts/services/NovelsService.js"></script>
+		<script src="scripts/services/PersonsService.js"></script>
+		<script src="scripts/services/SavedFilterFactory.js"></script>
+		<!--
+			NovelApp-Scripts: Directives
+		-->
+		<script src="scripts/directives/novelsAddPerson.js"></script>
+		<script src="scripts/directives/novelsValidADYear.js"></script>
+		<!--
+			NovelApp-Scripts: Filter
+		-->
+		<script src="scripts/filter/novelsEmptyString.js"></script>
+		<script src="scripts/filter/novelsFullLanguageName.js"></script>
+		<!--
+			NovelApp-Scripts: Controller
+		-->
+		<script src="scripts/controller/NewNovelController.js"></script>
+		<script src="scripts/controller/NovelDetailsController.js"></script>
+		<script src="scripts/controller/NovelListController.js"></script>
+		<script src="scripts/controller/AddPersonController.js"></script>
+		<script src="scripts/controller/UniqueNovelInListController.js"></script>
+
+		<!--
+			NovelApp-Sytylesheet
+		-->
+		<link rel="stylesheet" href="css/dumas.css">
+
+	</head>
+</html>
