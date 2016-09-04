@@ -1,1 +1,1 @@
-A Readme
+Available: http://novelsapp.lindaspindler.com
